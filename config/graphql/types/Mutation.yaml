@@ -1,0 +1,53 @@
+MutationSuccess:
+  type: object
+  config:
+    fields:
+      content:
+        type: String!
+
+Mutation:
+  type: object
+  config:
+    fields:
+      NewArticle:
+        type: MutationSuccess
+        args:
+          input:
+            type: ArticleInput!
+        resolve: "@=mutation('NewArticle', [args['input']['title'], args['input']['text'], args['input']['author_id'],
+        args['input']['category_id']])"
+      UpdateArticle:
+        type: MutationSuccess
+        args:
+          id:
+            description: 'Mutates Article using its id.'
+            type: 'Int!'
+          input:
+            type: ArticleInput!
+        resolve: "@=mutation('UpdateArticle', [args['id'], args['input']['title'], args['input']['text'], args['input']['author_id'],
+              args['input']['category_id']])"
+      DeleteArticle:
+        type: MutationSuccess
+        args:
+          id:
+            description: 'Mutates Author using its id.'
+            type: 'Int!'
+        resolve: "@=mutation('DeleteArticle', [args['id']])"
+      NewAuthor:
+        type: MutationSuccess
+        args:
+          input:
+            type: AuthorInput!
+        resolve: "@=mutation('NewAuthor', [args['input']['username']])"
+      NewCategory:
+        type: MutationSuccess
+        args:
+          input:
+            type: CategoryInput!
+        resolve: "@=mutation('NewCategory', [args['input']['name']])"
+      NewComment:
+        type: MutationSuccess
+        args:
+          input:
+            type: CommentInput!
+        resolve: "@=mutation('NewComment', [args['input']['text'], args['input']['article_id']])"

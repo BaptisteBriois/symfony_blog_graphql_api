@@ -30,7 +30,7 @@ class Article
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Author", inversedBy="articles")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
      */
     private $author;
 
@@ -41,7 +41,7 @@ class Article
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="article")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $category;
 
