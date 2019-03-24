@@ -1,0 +1,16 @@
+Article:
+  type: object
+  config:
+    fields:
+      id:
+        type: 'Int!'
+      title:
+        type: 'String!'
+      text:
+        type: 'String!'
+      author:
+        type: 'Author'
+      category:
+        type: 'Category'
+      comments:
+        type: '[Comment]'

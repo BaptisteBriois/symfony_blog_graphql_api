@@ -1,0 +1,12 @@
+Query:
+  type: object
+  config:
+    fields:
+      Article:
+        type: 'Article'
+      Author:
+        type: 'Author'
+      Category:
+        type: 'Category'
+      Comment:
+        type: 'Comment'
