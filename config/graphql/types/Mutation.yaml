@@ -30,7 +30,7 @@ Mutation:
         type: MutationSuccess
         args:
           id:
-            description: 'Mutates Author using its id.'
+            description: 'Mutates Article using its id.'
             type: 'Int!'
         resolve: "@=mutation('DeleteArticle', [args['id']])"
       NewAuthor:
@@ -39,15 +39,63 @@ Mutation:
           input:
             type: AuthorInput!
         resolve: "@=mutation('NewAuthor', [args['input']['username']])"
+      UpdateAuthor:
+        type: MutationSuccess
+        args:
+          id:
+            description: 'Mutates Author using its id.'
+            type: 'Int!'
+          input:
+            type: AuthorInput!
+        resolve: "@=mutation('UpdateAuthor', [args['id'], args['input']['username']])"
+      DeleteAuthor:
+        type: MutationSuccess
+        args:
+          id:
+            description: 'Mutates Author using its id.'
+            type: 'Int!'
+        resolve: "@=mutation('DeleteAuthor', [args['id']])"
       NewCategory:
         type: MutationSuccess
         args:
           input:
             type: CategoryInput!
         resolve: "@=mutation('NewCategory', [args['input']['name']])"
+      UpdateCategory:
+        type: MutationSuccess
+        args:
+          id:
+            description: 'Mutates Category using its id.'
+            type: 'Int!'
+          input:
+            type: CategoryInput!
+        resolve: "@=mutation('UpdateCategory', [args['id'], args['input']['name']])"
+      DeleteCategory:
+        type: MutationSuccess
+        args:
+          id:
+            description: 'Mutates Category using its id.'
+            type: 'Int!'
+        resolve: "@=mutation('DeleteCategory', [args['id']])"
       NewComment:
         type: MutationSuccess
         args:
           input:
             type: CommentInput!
         resolve: "@=mutation('NewComment', [args['input']['text'], args['input']['article_id']])"
+      UpdateComment:
+        type: MutationSuccess
+        args:
+          id:
+            description: 'Mutates Comment using its id.'
+            type: 'Int!'
+          input:
+            type: CommentInput!
+        resolve: "@=mutation('UpdateComment', [args['id'], args['input']['text'], args['input']['article_id']])"
+      DeleteComment:
+        type: MutationSuccess
+        args:
+          id:
+            description: 'Mutates Comment using its id.'
+            type: 'Int!'
+        resolve: "@=mutation('DeleteComment', [args['id']])"
